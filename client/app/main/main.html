@@ -3,10 +3,17 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-     <form name="form">
-       <input id="search" ng-model="user.location"></input>
-       <button ng-click="search()">Search</button>
-     </form>
+      <div class="row">
+       <form name="form">
+         <input id="search" ng-model="user.location"></input>
+         <button ng-click="search()">Search</button>
+       </form>
+      </div>
+      <div class="row">
+        <ul>
+          <li ng-repeat="bar in bars"> {{bar.name}} </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
