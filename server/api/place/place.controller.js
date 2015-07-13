@@ -23,10 +23,19 @@ exports.show = function(req, res) {
 //Show all places for a location
 
 exports.showPlaces = function(req, res) {
-  Place.find({location: req.params.location}, function(err, place) {
+  Place.find({location: req.params.location}, function(err, places) {
     if (err) { return handleError(res, err); }
-    if(!place) { return res.send(404); }
-    return res.json(place);
+    if(!places) { return res.send(404); }
+    return res.json(places);
+  })
+};
+
+//show a specific place
+exports.showPlace = function(req, res) {
+  Place.find({location: req.params.location, place: req.params.place}, function(err, place){
+    if (err) { return handleError(res, err); }
+    if(!place) { return res.send(200)}
+    return res.json(place)
   })
 };
 

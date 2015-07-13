@@ -7,7 +7,7 @@ angular.module('webstormProjectsApp', [
   'ngRoute',
   'ui.bootstrap'
 ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider, $httpProvider) { //why the fuck doesn't putting $applyProvider here work?!
     $routeProvider
       .otherwise({
         redirectTo: '/'

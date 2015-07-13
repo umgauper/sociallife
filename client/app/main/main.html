@@ -5,12 +5,14 @@
        <form name="form">
          <input id="search" ng-model="location"></input>
          <button ng-click="search()">Search</button>
+
        </form>
       </div>
       <div class="row">
           <li ng-repeat="bar in bars">
-            <button ng-click="addMe(bar.location.city, bar.name)">Add Me</button>
+            <button ng-click="addMe(bar.location.city, bar.name, $index)">Add Me</button>
             <a href="{{bar.url}}"> {{bar.name}} </a>
+            <p><span> {{bar.user_count}}</span> Going</p>
           </li>
         </ul>
       </div>
