@@ -49,19 +49,31 @@ exports.create = function(req, res) {
 
 // Updates an existing place in the DB.
 exports.update = function(req, res) {
-  if(req.body._id) { delete req.body._id; }
-  Place.findById(req.params.id, function (err, place) {
-    if (err) { return handleError(res, err); }
-    if(!place) { return res.send(404); }
-    var updated = _.merge(place, req.body);
-    updated.save(function (err) {
-      if (err) { return handleError(res, err); }
-      return res.json(200, place);
-    });
+  //console.log(req.params, req.body);
+  var update = {$push: {users: req.body.user}}; //this is adding null to the users array...
+
+  //if(req.body._id) { delete req.body._id; }
+
+  Place.update({_id: req.params.id}, update, function(err) {
+    if(err) { return handleError(res, err); }
+    return res.send(200);
+  });
+
+};
+
+// Remove a user from a users array
+
+exports.removeUser = function(req, res) {
+  var update = {$pull: {users: req.params.user}};
+
+  Place.update({_id: req.params.id}, update, function(err) {
+    if(err) { return handleError(res, err); }
+    return res.send(200);
   });
 };
 
 // Deletes a place from the DB.
+
 exports.destroy = function(req, res) {
   Place.findById(req.params.id, function (err, place) {
     if(err) { return handleError(res, err); }

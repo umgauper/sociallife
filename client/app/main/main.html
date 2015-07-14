@@ -10,7 +10,8 @@
       </div>
       <div class="row">
           <li ng-repeat="bar in bars">
-            <button ng-click="addMe(bar.location.city, bar.name, $index)">Add Me</button>
+            <button ng-click="addMe(location, bar.name, $index)" ng-show="!isGoingArr[$index]" id="addMe">Add Me</button>
+            <button ng-click="removeMe(location, bar.name, $index)" ng-show="isGoingArr[$index]" id="removeMe">Remove Me</button>
             <a href="{{bar.url}}"> {{bar.name}} </a>
             <p><span> {{bar.user_count}}</span> Going</p>
           </li>

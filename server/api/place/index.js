@@ -11,6 +11,7 @@ router.get('/:location', controller.showPlaces);
 router.get('/:location/:place', controller.showPlace)
 router.post('/', controller.create);
 router.put('/:id', controller.update);
+router.put('/:id/:user', controller.removeUser);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
