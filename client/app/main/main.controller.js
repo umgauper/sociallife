@@ -8,7 +8,7 @@ angular.module('webstormProjectsApp')
 
       $scope.search = function() {
 
-        $scope.isGoingArr = [];
+
         // get data from api/places
 
         $http.get('api/places/' + $scope.location.toLowerCase())
@@ -18,12 +18,14 @@ angular.module('webstormProjectsApp')
             $http.get('api/datas/' + $scope.location)
 
               .success(function (data) {
-                $scope.bars = data.businesses; //the business array
-
-                $scope.bars.forEach(function(el) {
+                $scope.isGoingArr = [];
+                 //the business array
+                data.businesses.forEach(function(el) {
                   el.user_count = $scope.countUsers(el.name);
                   $scope.isGoingArr.push($scope.isGoing(el.name));
                 });
+
+                $scope.bars = data.businesses;
 
                 $scope.cssVar = 'searchBarUp';
                 $scope.cssVar2 = 'resultsUp';
