@@ -5,7 +5,8 @@ angular.module('webstormProjectsApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngAnimate'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) { //why the fuck doesn't putting $applyProvider here work?!
     $routeProvider

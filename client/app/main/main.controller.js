@@ -4,7 +4,6 @@ angular.module('webstormProjectsApp')
   .controller('MainCtrl', function ($scope, $http) {
 
       $scope.isGoingArr = [];
-
       $scope.user = 'Test User 1'; //later after Twitter auth working, change to Auth.getCurrentUser()
 
       $scope.search = function() {
@@ -13,7 +12,6 @@ angular.module('webstormProjectsApp')
         // get data from api/places
 
         $http.get('api/places/' + $scope.location.toLowerCase())
-
           .success(function (data) {
             $scope.places_data = data;
 
@@ -26,6 +24,9 @@ angular.module('webstormProjectsApp')
                   el.user_count = $scope.countUsers(el.name);
                   $scope.isGoingArr.push($scope.isGoing(el.name));
                 });
+
+                $scope.cssVar = 'searchBarUp';
+                $scope.cssVar2 = 'resultsUp';
               })
           });
       };
@@ -65,7 +66,7 @@ angular.module('webstormProjectsApp')
       };
 
       $scope.removeMe = function(location, place, index) {
-        $http.get('api/places/' + location + '/' + place)
+        $http.get('api/places/' + location.toLowerCase() + '/' + place)
           .success(function(data) {
             $http.put('api/places/' + data[0]._id + '/' + $scope.user)
               .success(function() {
