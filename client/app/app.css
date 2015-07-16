@@ -147,7 +147,7 @@ button {
 }
 
 .searchBar button:hover {
-  background: rgba(115, 201, 208, 0.9);
+  background: rgba(115, 201, 208, 0.9.s);
 }
 
 .results .list-group .list-group-item button {
