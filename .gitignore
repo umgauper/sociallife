@@ -32,6 +32,6 @@ public
 .idea
 /client/bower_components/*
 dist
-server/config
+/server/config/*
 data
 !client/index.html

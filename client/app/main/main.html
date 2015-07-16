@@ -1,4 +1,13 @@
 <div ng-class="cssVar" class="searchBar">
+
+  <!-- move later -->
+<div ng-controller="LoginCtrl">
+  <div id="#twitter">
+  <a href="", ng-click="loginOauth('twitter')")><i class="fa fa-twitter"></i>Connect with Twitter</a>
+  </div>
+  <h1>{{user}}</h1>
+</div>
+
   <div class="container">
     <div class="row">
          <form name="form">
@@ -14,6 +23,7 @@
       </div>
     </div>
 </div>
+<!--TODO: since updating the user.model.js, after going to /auth/twitter, the app automatically redirects to the home page without making you authorize the app first...-->
 <div ng-class="cssVar2" class="results ng-cloak">
   <div class="container">
       <div class="row">

@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('webstormProjectsApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, Auth) {
 
       $scope.isGoingArr = [];
-      $scope.user = 'Test User 1'; //later after Twitter auth working, change to Auth.getCurrentUser()
+
+      //$scope.user = Auth.getCurrentUser().name || 'not logged in'; //later after Twitter auth working, change to Auth.getCurrentUser()
 
       $scope.search = function() {
 
