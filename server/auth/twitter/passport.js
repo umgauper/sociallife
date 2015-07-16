@@ -3,9 +3,9 @@ exports.setup = function (User, config) {
   var TwitterStrategy = require('passport-twitter').Strategy;
 
   passport.use(new TwitterStrategy({
-      consumerKey: config.twitter.clientID,
-      consumerSecret: config.twitter.clientSecret,
-      callbackURL: config.twitter.callbackURL
+      consumerKey: process.env.TWITTER_ID || config.twitter.clientID,
+      consumerSecret: process.env.TWITTER_SECRET || config.twitter.clientSecret,
+      callbackURL: ( process.env.DOMAIN || '') + '/auth/twitter/callback'
     },
     function (token, tokenSecret, profile, done) {
       User.findOne({
