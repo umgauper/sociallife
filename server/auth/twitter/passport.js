@@ -3,8 +3,8 @@ exports.setup = function (User, config) {
   var TwitterStrategy = require('passport-twitter').Strategy;
 
   passport.use(new TwitterStrategy({
-      consumerKey:  process.env.TWITTER_ID,
-      consumerSecret: process.env.TWITTER_SECRET,
+      consumerKey:  process.env.TWITTER_ID || config.twitter.clientID,
+      consumerSecret: process.env.TWITTER_SECRET || config.twitter.clientSecret,
       callbackURL: process.env.DOMAIN  + '/auth/twitter/callback'
     },
     function (token, tokenSecret, profile, done) {
