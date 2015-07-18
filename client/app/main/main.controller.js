@@ -42,7 +42,7 @@ angular.module('webstormProjectsApp')
 
         location = location.toLowerCase();
 
-        if(Auth.getCurrentUser.name()) {
+        if(Auth.getCurrentUser().name) {
           $scope.openLogin();
         } else {
           //check if place already exists in the database
