@@ -83,6 +83,8 @@ input, li   {
   left: 0;
   right: 0;
   -moz-transition: 1s ease 0s;
+  -webkit-transition: 1s ease 0s;
+  transition: 1s ease 0s;
 }
 
 .results {
@@ -93,6 +95,8 @@ input, li   {
   right: 0;
   top: 100%;
   -moz-transition: 1s ease 0s;
+  -webkit-transition: 1s ease 0s;
+  transition: 1s ease 0s;
 }
 
 .searchBarUp {

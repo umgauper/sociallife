@@ -52,14 +52,13 @@ angular.module('webstormProjectsApp')
           $http.get('api/places/' + location + '/' + place)
             .success(function (data) {
               if (data.length > 0) { // if place exists in database
-                // PUT request to update existing place object in db
                 $http.put('api/places/' + data[0]._id, {user: $scope.user})
                   .success(function (data) {
                     $scope.bars[index].user_count++;
                     $scope.isGoingArr[index] = true;
                   });
               } else {
-                // post new object for place to db
+                // if not, post new object for place to db
                 $http.post('api/places', {location: location, place: place, users: [$scope.user]})
                   .success(function () {
                     //update model for place.user_count;
