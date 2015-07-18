@@ -1,15 +1,18 @@
 'use strict';
 
 angular.module('webstormProjectsApp')
-  .controller('MainCtrl', function ($scope, $http, Auth) {
+  .controller('MainCtrl', function ($scope, $http, Auth, $modal) {
 
       $scope.isGoingArr = [];
 
-      //$scope.user = Auth.getCurrentUser().name || 'not logged in'; //later after Twitter auth working, change to Auth.getCurrentUser()
+      $scope.openLogin = function() {
+        $modal.open({
+            templateUrl: 'components/modal/modal.html',
+            controller: 'LoginCtrl'
+          });
+      };
 
       $scope.search = function() {
-
-
         // get data from api/places
 
         $http.get('api/places/' + $scope.location.toLowerCase())
@@ -36,36 +39,36 @@ angular.module('webstormProjectsApp')
 
       $scope.addMe = function(location, place, index) {
 
+        $scope.user = Auth.getCurrentUser().name;
+
+        console.log($scope.user);
+
         location = location.toLowerCase();
 
-        //check if place already exists in the database
-
-        $http.get('api/places/' + location + '/' + place)
-
-          .success(function(data) {
-            if(data.length > 0) { // if place exists in database
+        if(!$scope.user) {
+          $scope.openLogin();
+        } else {
+          //check if place already exists in the database
+          $http.get('api/places/' + location + '/' + place)
+            .success(function (data) {
+              if (data.length > 0) { // if place exists in database
                 // PUT request to update existing place object in db
-
-              //make sure user isn't already in the users array (shouldn't be able to click Add Me if they are, but this is extra good...
-
-              $http.put('api/places/' + data[0]._id, {user: $scope.user})
-
-                .success(function(data) {
-                  $scope.bars[index].user_count++;
-                  $scope.isGoingArr[index] = true;
-
-                });
-            } else {
-              // post new object for place to db
-              $http.post('api/places', {location: location, place: place, users: [$scope.user]})
-
-                .success(function() {
-                  //update model for place.user_count;
-                  $scope.bars[index].user_count++;
-                  $scope.isGoingArr[index] = true;
-                });
-            }
-          });
+                $http.put('api/places/' + data[0]._id, {user: $scope.user})
+                  .success(function (data) {
+                    $scope.bars[index].user_count++;
+                    $scope.isGoingArr[index] = true;
+                  });
+              } else {
+                // post new object for place to db
+                $http.post('api/places', {location: location, place: place, users: [$scope.user]})
+                  .success(function () {
+                    //update model for place.user_count;
+                    $scope.bars[index].user_count++;
+                    $scope.isGoingArr[index] = true;
+                  });
+              }
+            });
+        }
       };
 
       $scope.removeMe = function(location, place, index) {

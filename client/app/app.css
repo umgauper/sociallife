@@ -56,11 +56,11 @@ a, a:hover {
   color: white !important;
 }
 
-div, form {
+.results div, .results form, .searchBar div, .searchBar form {
   background-color: transparent !important;
 }
 
-input, li  {
+input, li   {
   background-color: rgba(96, 115, 122, 0.7) !important;
 }
 
@@ -175,3 +175,14 @@ button {
   padding: 10px 15px;
   position: relative;
 }
+
+.modal-header {
+  background-color: rgba(66, 139, 202, 1) !important;
+}
+
+.modal-body, .modal-footer {
+  background-color: rgba(255, 255, 255, 1);
+  color: black !important;
+}
+
+
