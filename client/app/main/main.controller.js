@@ -30,7 +30,6 @@ angular.module('webstormProjectsApp')
                 });
 
                 $scope.bars = data.businesses;
-
                 $scope.cssVar = 'searchBarUp';
                 $scope.cssVar2 = 'resultsUp';
               })
@@ -40,8 +39,6 @@ angular.module('webstormProjectsApp')
       $scope.addMe = function(location, place, index) {
 
         $scope.user = Auth.getCurrentUser().name;
-
-        console.log($scope.user);
 
         location = location.toLowerCase();
 
@@ -96,7 +93,6 @@ angular.module('webstormProjectsApp')
 
       $scope.isGoing = function(place) {
         //go through $scope.places data, return object that matches place...then check if $scope.user is in users array.
-
         var place_obj = $scope.places_data.filter(function(el) {
           return el.place === place
         });

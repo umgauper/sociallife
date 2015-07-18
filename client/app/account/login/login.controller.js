@@ -30,7 +30,7 @@ angular.module('webstormProjectsApp')
       dismissable: true,
       title: 'Login',
       text: 'Oops! You forgot to login!',
-      buttons: [{text: 'Cancel'}, {text: 'Twitter Login'/*, click: $scope.loginOauth('twitter')*/}]
+      buttons: [{text: 'Cancel'}, {text: 'Twitter Login'}]
     };
 
 
