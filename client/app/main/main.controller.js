@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('webstormProjectsApp')
+angular.module('sociallifeApp')
   .controller('MainCtrl', function ($scope, $http, Auth, $modal) {
 
       $scope.isGoingArr = [];
@@ -37,7 +37,7 @@ angular.module('webstormProjectsApp')
       };
 
       $scope.addMe = function(location, place, index) {
-        console.log(Auth.getCurrentUser().name)
+        console.log(Auth.getCurrentUser().name);
 
         $scope.user = Auth.getCurrentUser().name;
 

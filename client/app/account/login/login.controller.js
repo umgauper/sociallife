@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('webstormProjectsApp')
+angular.module('sociallifeApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
     $scope.errors = {};
 
