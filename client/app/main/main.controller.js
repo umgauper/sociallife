@@ -69,16 +69,20 @@ angular.module('sociallifeApp')
       };
 
       $scope.removeMe = function(location, place, index) {
-        $http.get('api/places/' + location.toLowerCase() + '/' + place)
-          .success(function(data) {
-            $http.put('api/places/' + data[0]._id + '/' + $scope.user)
-              .success(function() {
-                //update model for place.user_count
-                $scope.bars[index].user_count--;
-                $scope.isGoingArr[index] = false;
+        if(!Auth.getCurrentUser().name) {
+          $scope.openLogin();
+        } else {
+          $http.get('api/places/' + location.toLowerCase() + '/' + place)
+            .success(function (data) {
+              $http.put('api/places/' + data[0]._id + '/' + $scope.user)
+                .success(function () {
+                  //update model for place.user_count
+                  $scope.bars[index].user_count--;
+                  $scope.isGoingArr[index] = false;
 
-              })
-          })
+                })
+            })
+        }
       };
 
       $scope.countUsers = function(place) {
