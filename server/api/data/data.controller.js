@@ -31,8 +31,8 @@ var request_yelp = function(set_parameters, callback) {
   };
 
   var required_parameters = {
-    oauth_consumer_key: config.yelp.consumer_key,
-    oauth_token: config.yelp.token,
+    oauth_consumer_key: process.env.YELP_KEY || config.yelp.consumer_key,
+    oauth_token: process.env.YELP_TOKEN || config.yelp.token,
     oauth_nonce: n(),
     oauth_timestamp: n().toString().substr(0, 10),
     oauth_signature_method: 'HMAC-SHA1',
@@ -41,9 +41,8 @@ var request_yelp = function(set_parameters, callback) {
 
   var parameters = _.assign(default_parameters, set_parameters, required_parameters);
 
-  //put these in config/index.js b4 pushing to Git
-  var consumerSecret = config.yelp.consumer_secret;/*process.env.consumerSecret || '3NM7aalnzr3f3bsnMDbZktWcuSE';*/
-  var tokenSecret = config.yelp.token_secret;/*process.env.tokenSecret || 'jh3itQWL0PVbT_5pYYkHa2x2aQY';*/
+  var consumerSecret = process.env.YELP_SECRET || config.yelp.consumer_secret;
+  var tokenSecret = process.env.YELP_TOKEN_SECRET || config.yelp.token_secret;
 
   var signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret,
   tokenSecret, {encodeSignature: false});
