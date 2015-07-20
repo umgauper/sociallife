@@ -93,7 +93,7 @@ angular.module('sociallifeApp')
       };
 
       $scope.isGoing = function(place) {
-        //go through $scope.places data, return object that matches place...then check if $scope.user is in users array.
+
         var place_obj = $scope.places_data.filter(function(el) {
           return el.place === place
         });
@@ -102,7 +102,7 @@ angular.module('sociallifeApp')
           return false;
         } else {
           var users = place_obj[0].users;
-          return users.indexOf($scope.user) !== -1
+          return users.indexOf(Auth.getCurrentUser().name) !== -1
         }
     }
   });
