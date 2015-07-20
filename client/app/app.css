@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+/*@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);*/
 /**
  * Bootstrap Fonts
  */
@@ -27,6 +27,16 @@
     font-style: normal;
 }
 
+/**
+ * PT Sans Narrow fonts
+ */
+
+@font-face {
+  font-family: 'PT Sans Narrow';
+  src: url('../bower_components/fonts-google/PT_Sans-Narrow-Web-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 /**
  * App-wide Styles
  */
