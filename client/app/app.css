@@ -1,0 +1,192 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+/**
+ * Bootstrap Fonts
+ */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/**
+ *Font Awesome Fonts
+ */
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0');
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+html {
+  background-attachment: fixed !important;
+  background-image: url('/assets/images/friends.jpg ');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  letter-spacing: 1px;
+}
+
+body {
+  color: #FDFDFD !important;
+  background-color: transparent !important;
+}
+
+a, a:hover {
+  color: white !important;
+}
+
+.results div, .results form, .searchBar div, .searchBar form {
+  background-color: transparent !important;
+}
+
+input, li   {
+  background-color: rgba(96, 115, 122, 0.7) !important;
+}
+
+.searchBar button {
+  width: 100%;
+  margin-left: 20px;
+}
+/* styles after search is submitted */
+
+.searchBar {
+  position: absolute;
+  top: 50%;
+  font-family: "PT Sans Narrow";
+  font-weight: 200;
+  font-size: 1.5em;
+  color: #FFF;
+  line-height: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  -moz-transition: 1s ease 0s;
+  -webkit-transition: 1s ease 0s;
+  transition: 1s ease 0s;
+}
+
+.results {
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  -moz-transition: 1s ease 0s;
+  -webkit-transition: 1s ease 0s;
+  transition: 1s ease 0s;
+}
+
+.searchBarUp {
+  top: 0;
+  margin-top: 10px;
+}
+
+.resultsUp {
+  top: 0;
+  margin-top: 90px;
+}
+
+
+/*TODO: add animations to be called after search is clicked that moves search bar up and eases list in ..*/
+
+#search {
+  width: 100%;
+  border: 1px solid #60737A;
+  background: rgba(96, 115, 122, 0.7) none repeat scroll 0% 0%;
+  line-height: 4rem;
+  text-indent: 60px;
+}
+
+.searchBar i {
+  color: #fff;
+  float: left;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 5;
+}
+
+
+button {
+  height: 4.25rem;
+  border: 1px solid #77D6DC;
+  background: rgba(119, 214, 220, 0.8) none repeat scroll 0 0;
+}
+
+#removeMe  {
+  background: rgba(96, 115, 122, 0.7) none repeat scroll 0 0;
+  border: 1px solid #60737a;
+}
+
+#removeMe:hover {
+  background: rgba(96, 119, 113);
+}
+
+#addMe:hover {
+  background: rgba(115, 201, 208, 1);
+}
+
+.searchBar button:hover {
+  background: rgba(115, 201, 208, 0.9.s);
+}
+
+.results .list-group .list-group-item button {
+  color: #fff;
+  margin-right: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.results .list-group {
+  font-family: "PT Sans Narrow";
+  font-size: 1.5em;
+  font-weight: 200;
+  width: 103% !important;
+}
+
+#going {
+  float: right;
+}
+
+.list-group-item {
+  border: medium none !important;
+  display: block;
+  margin-bottom: -1px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.modal-header {
+  background-color: rgba(66, 139, 202, 1) !important;
+}
+
+.modal-body, .modal-footer {
+  background-color: rgba(255, 255, 255, 1);
+  color: black !important;
+}
+
+
