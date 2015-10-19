@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sociallifeApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window, saveLocation) {
     $scope.errors = {};
 
     $scope.login = function(form) {
@@ -32,4 +32,9 @@ angular.module('sociallifeApp')
       text: 'Oops! You forgot to login!',
       buttons: [{text: 'Cancel'}, {text: 'Twitter Login'}]
     };
+
+    $scope.setLocation = function(location) {
+      saveLocation.setLocation(location);
+    }
+
   });

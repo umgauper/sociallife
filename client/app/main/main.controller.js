@@ -1,7 +1,18 @@
 'use strict';
 
 angular.module('sociallifeApp')
-  .controller('MainCtrl', function ($scope, $http, Auth, $modal) {
+  .controller('MainCtrl', function ($scope, $http, Auth, $modal, saveLocation) {
+
+    //put search function into a service...then do a search when $rootScope.$on(routechangestart or something...?
+      $scope.loadPreviousSearch = function() {
+        if(saveLocation.getLocation()) {
+          $scope.location = saveLocation.getLocation();
+          $scope.search();
+        }
+      };
+
+      var current_location =
+      console.log(current_location);
 
       $scope.isGoingArr = [];
 

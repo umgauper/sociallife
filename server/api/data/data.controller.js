@@ -47,6 +47,8 @@ var request_yelp = function(set_parameters, callback) {
   var signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret,
   tokenSecret, {encodeSignature: false});
 
+  console.log(signature);
+
   parameters.oauth_signature = signature;
 
   var paramURL = qs.stringify(parameters);
